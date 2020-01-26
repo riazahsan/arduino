@@ -3,3 +3,11 @@ A circuit that can test voltage of a battery
 If the voltage is greater than or equal to 1.6 volts, the green light will be turned on 
 If the voltage is greater than or equal to 1.4 volts, and less than or equal to 1.4 volts, the green yellow will be turned on 
 If the voltage is less than 1.4 volts, the red light will be turned on 
+
+# Examples
+
+## A good battery
+![Good battery](IMG_2671.JPG)
+
+## A bad battery
+![Bad battery](IMG_9148.JPG)
