@@ -10,4 +10,4 @@ If the voltage is less than 1.4 volts, the red light will be turned on
 ![Good battery](IMG_2671.JPG)
 
 ## A bad battery
-![Bad battery](IMG_9148.JPG)
+![Bad battery](IMG_9148.jpg)
