@@ -29,6 +29,16 @@ void loop() {
 
   digitalWrite(pin_4, HIGH);
   digitalWrite(pin_6, HIGH);
+  digitalWrite(pin_2, HIGH);
+  digitalWrite(pin_1, HIGH);
+  digitalWrite(pin_9, HIGH);
+  digitalWrite(pin_7, HIGH);
+  delay(x);
+  
+  digitalWrite(pin_2, LOW);
+  digitalWrite(pin_1, LOW);
+  digitalWrite(pin_9, LOW);
+  digitalWrite(pin_7, LOW);
   delay(x);
   
   digitalWrite(pin_1, HIGH);
@@ -76,6 +86,6 @@ void loop() {
   digitalWrite(pin_7, LOW);
   digitalWrite(pin_10, LOW);
   digitalWrite(pin_2, LOW);
-  delay(x);
+  
 
 }
