@@ -1,27 +1,32 @@
-/* Hello World OLED Test */
-#include "SSD1306.h" // alias for `#include "SSD1306Wire.h"`
-SSD1306  display(0x3c, 5, 4); // Initialise the OLED display using Wire library
-void setup() 
-{
-  Serial.begin(115200);
-  display.init(); // Initialising the UI will init the display too.
-  display.flipScreenVertically();
-  
-  display.clear();
-  drawHelloWorld(); 
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define OLED_RESET LED_BUILTIN  //4
+Adafruit_SSD1306 display(OLED_RESET);
+
+#if (SSD1306_LCDHEIGHT != 64)
+#error("Height incorrect, please fix Adafruit_SSD1306.h!");
+#endif
+
+void setup() {
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+
+  // Clear the buffer.
+  display.clearDisplay();
   display.display();
+
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0,0);
+  display.println("Hello from:");
+  display.println("http://arduino-er.blogspot.com/");
+  display.display();
+
 }
-void loop() 
-{
-  
-}
-void drawHelloWorld() 
-{
-    display.setTextAlignment(TEXT_ALIGN_LEFT);
-    display.setFont(ArialMT_Plain_10);
-    display.drawString(0, 0, "Hello world");
-    display.setFont(ArialMT_Plain_16);
-    display.drawString(0, 10, "Hello world");
-    display.setFont(ArialMT_Plain_24);
-    display.drawString(0, 26, "Hello world");
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
 }
