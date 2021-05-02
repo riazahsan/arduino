@@ -1,40 +1,35 @@
-#define ENABLE 5
-#define DIRA 3
-#define DIRB 4
-
-int rbutton = 10;
-int lbutton = 11;
-
-
+int speedPin = 5;
+int dir1 = 4;
+int dir2 = 3;
+int mSpeed;
+int jPin = A1;
+int jVal;
+ 
 void setup() {
   // put your setup code here, to run once:
-
-  pinMode(ENABLE, OUTPUT);
-  pinMode(DIRA, OUTPUT);
-  pinMode(DIRB, OUTPUT);
-  pinMode(rbutton, INPUT_PULLUP);
-  pinMode(lbutton, INPUT_PULLUP);
-
+pinMode(speedPin,OUTPUT);
+pinMode(dir1,OUTPUT);
+pinMode(dir2,OUTPUT);
+pinMode(jPin,INPUT);
+Serial.begin(9600);
+ 
 }
-
+ 
 void loop() {
   // put your main code here, to run repeatedly:
-
-  if (digitalRead(rbutton) == LOW) {
-
-    digitalWrite(ENABLE, HIGH);
-    digitalWrite(DIRA, HIGH);
-    digitalWrite(DIRB, LOW);
-
-  }
-
-  if (digitalRead(lbutton) == LOW) {
-
-    digitalWrite(ENABLE, LOW);
-    digitalWrite(DIRA, LOW);
-    digitalWrite(DIRB, HIGH);
-
-  }
-
-
+jVal=analogRead(jPin);
+ 
+Serial.println(jVal);
+if (jVal<512){
+digitalWrite(dir1,LOW);
+digitalWrite(dir2,HIGH);
+/*mSpeed=-255./512.*jVal+255.;
+analogWrite(speedPin,mSpeed); */
+}
+if(jVal>=512){
+digitalWrite(dir1,HIGH);
+digitalWrite(dir2,LOW);
+/*mSpeed=(255./512.)*jVal-255.;
+analogWrite(speedPin,mSpeed);*/
+}
 }
